@@ -1,0 +1,38 @@
+{#- vim: set filetype=jinja: #}
+
+{%- extends "bootstrap/base.html" %}
+
+{#- Set title #}
+{% block title %}{{ title | default('unsung.io') }}{% endblock title %}
+
+{# Meta tags for page description -#}
+{% block metas -%}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{{ super() }}
+{%- block social %}
+{%- endblock social %}
+{% endblock metas %}
+
+{# Links for SEO -#}
+{% block links -%}
+<link rel="canonical" href="http://unsung.io/" />
+{%- endblock links %}
+
+{# Import fixes for legacy browsers (just IE lol), hopefully it works #}
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{ super() }}
+{{ fixes.ie8() }}
+{% endblock head %}
+
+{# Custom CSS styles #}
+{% block styles %}
+{{ super() }}
+{% endblock styles %}
+
+
+{% block navbar %}
+{{ nav.site_nav.render() | safe }}
+{% endblock navbar %}

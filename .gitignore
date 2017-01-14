@@ -25,3 +25,6 @@ Session.vim
 .netrwhist
 *~
 tags
+
+# SQLite db
+**/app.db
