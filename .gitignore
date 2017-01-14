@@ -1,0 +1,27 @@
+# fkn apple
+**/.DS_Store
+
+# compiled python stuff
+__pycache__/
+*.py[cod]
+
+# bubble wrap
+*.egg-info/
+
+# testing
+.tox/
+junit-*.xml
+
+# shhhhh....
+instance/
+
+# customize as needed
+start.sh
+
+# vim garbage
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+Session.vim
+.netrwhist
+*~
+tags
