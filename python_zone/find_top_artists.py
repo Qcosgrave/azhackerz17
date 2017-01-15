@@ -1,4 +1,5 @@
 import sys
+import os
 import spotipy
 import spotipy.util as util
 import json
@@ -22,4 +23,5 @@ artists = []
 for item in results['items']:
     artists.append(item['name'])
 
-print str(artists)
+for item in artists:
+    os.system("python find_events.py '" + item + "'")
