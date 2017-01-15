@@ -1,7 +1,3 @@
-import logging
-logger = logging.getLogger(__name__)
-
-
 from flask import Flask, g
 
 # Initialize flask
@@ -27,6 +23,9 @@ if config_env is not None:
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy(app)
 
+from flask_oauthlib.client import OAuth
+oauth = OAuth()
+
 
 # Initialize Flask-Bootstrap
 from flask_bootstrap import Bootstrap, WebCDN
@@ -44,9 +43,11 @@ app.extensions['bootstrap']['cdns'] = {
             '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/')
 }
 
+from geopy.geocoders import Nominatim
+gc = Nominatim().geocode
 
 # Import home page
-from .home import home, navbar
+from .home import home
 app.register_blueprint(home)
 
 # Import error pages

@@ -17,6 +17,10 @@ setup(
     url="None",
 
     install_requires=[
+        "geopy",
+        "amadeus",
+        "eventful",
+        "requests",
         "flask",
         "flask-sqlalchemy",
         "flask-wtf",

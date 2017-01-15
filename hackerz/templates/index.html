@@ -4,13 +4,19 @@
 
 {% block page_content -%}
 <div class="center">
+  {% if fb_logged_in %}
+  <p>Location: {{ loc }}</p>
+  <p>Latitude: {{ lat }}</p>
+  <p>Longitude: {{ lon }}</p>
+  <p>Nearest Airport: {{ airport }}</p>
+  <p>Best Available Flights to {{ event }}:</p>
+  {% for f in flight %}
+  <p>{{ f }}</p>
+  {% endfor %}
 
-  <h3>Hello, {{ user.name | default('you are not logged in') }}.</h3>
-  {% if not session.logged_in %}
-  <li><a href="/facebook_login">Login or Signup</a></li>
-  {% else %}
-  <li><a href="/logout">Logout</a></li>
+  {#
+  <p>: {{ }}</p>
+  #}
   {% endif %}
-
 </div>
 {%- endblock page_content %}
