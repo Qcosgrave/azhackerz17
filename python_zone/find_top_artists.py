@@ -1,8 +1,7 @@
-import sys
-import os
 import spotipy
 import spotipy.util as util
 import json
+import find_events
 
 scope = 'user-top-read'
 
@@ -24,4 +23,4 @@ for item in results['items']:
     artists.append(item['name'])
 
 for item in artists:
-    os.system("python find_events.py '" + item + "'")
+    find_events.find_events(item)
