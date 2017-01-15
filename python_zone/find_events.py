@@ -27,7 +27,7 @@ def find_events(artist):
 
     if event_count != 0:
         events = api.call('/performers/events/list', id=performer_id)['event']
-        print json.dumps(events, indent=2, sort_keys=True)
+        # print json.dumps(events, indent=2, sort_keys=True)
 
         for event in events:
             city = event['city']
@@ -44,8 +44,8 @@ def find_events(artist):
 
             dest_airport_code = find_airport.find_airport(longitude, latitude)
 
-            find_flight.find_flight("FRA", dest_airport_code, start_time)
+            find_flight.find_flight("TUS", dest_airport_code, start_time)
 
-            # print "Located in %s, %s, %s. %s." % (city, region, country, event_title)
+            print "Located in %s, %s, %s. %s." % (city, region, country, event_title)
     else:
         print "No events for " + artist
