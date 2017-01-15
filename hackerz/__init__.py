@@ -2,10 +2,10 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-from flask import Flask
+from flask import Flask, g
 
 # Initialize flask
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
 
 
 # Load default configuration
@@ -18,7 +18,7 @@ CONFIG_ENVVAR = 'HACKERZ_CONFIG'
 config_env = os.getenv(CONFIG_ENVVAR)
 if config_env is not None:
     try:
-        config.from_pyfile(config_env)
+        app.config.from_pyfile(config_env)
     except Exception:
         logging.exception('%s is not set correctly' % CONFIG_ENVVAR)
 
@@ -52,7 +52,6 @@ app.register_blueprint(home)
 # Import error pages
 from .errors import errors
 app.register_blueprint(errors)
-
 
 # Initialize navbar
 from .nav import nav

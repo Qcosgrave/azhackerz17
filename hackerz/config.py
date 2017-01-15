@@ -13,3 +13,6 @@ class DefaultConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DATABASE_CONNECT_OPTIONS = {}
 
+    FB_APP_NAME = ''
+    FB_APP_ID = ''
+    FB_APP_SECRET = ''

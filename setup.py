@@ -17,6 +17,7 @@ setup(
     url="None",
 
     install_requires=[
+        "facebook-sdk",
         "flask",
         "flask-sqlalchemy",
         "flask-wtf",
