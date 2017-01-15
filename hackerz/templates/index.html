@@ -4,19 +4,13 @@
 
 {% block page_content -%}
 <div class="center">
-  <p class='circle-image'
-    style="background-image: url(https://graph.facebook.com/{{ user['id'] }}/picture?type=large);
-      margin-left: auto; margin-right: auto;">
-  </p>
 
-  <h3>Hello, {{ user['name'] }}.</h3>
+  <h3>Hello, {{ user.name | default('you are not logged in') }}.</h3>
+  {% if not session.logged_in %}
+  <li><a href="/facebook_login">Login or Signup</a></li>
+  {% else %}
+  <li><a href="/logout">Logout</a></li>
+  {% endif %}
 
-  <a href="/logout" id="logout">Log out</a>
-
-  <script>
-    document.getElementById('logout').onclick = function() {
-      FB.logout(function(response) { });
-    };
-  </script>
 </div>
 {%- endblock page_content %}
