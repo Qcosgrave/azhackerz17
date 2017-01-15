@@ -17,11 +17,11 @@ setup(
     url="None",
 
     install_requires=[
-        "facebook-sdk",
         "flask",
         "flask-sqlalchemy",
         "flask-wtf",
         "flask-nav",
-        "flask-bootstrap"
+        "flask-bootstrap",
+        "flask_oauthlib"
     ],
 )
